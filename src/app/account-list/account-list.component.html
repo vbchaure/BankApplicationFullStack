@@ -1,0 +1,29 @@
+<br><h3 class="text-center">Account List</h3><br>
+<div class="container">
+<table class="table table-striped table-hover table-bordered" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>User Id</th>
+            <th>Account Type</th>
+            <th>Account Balance</th>
+            <th>Branch Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let acc of accounts | paginate: { itemsPerPage: 5, currentPage: page1,totalItems:totalLength1 }">
+            <td>{{acc.accid}}</td>
+            <td>{{acc.userid}}</td>
+            <td>{{acc.atype}}</td>
+            <td>{{acc.abalance}}</td>
+            <td>{{acc.bname}}</td>
+            <td><button class="btn btn-success" (click)="updateAccount(acc.accid)"><i class="fa fa-pencil-square-o" style="color: white;font-size: 20px;" aria-hidden="true"></i></button></td>
+            <td><button class="btn btn-danger" (click)="deleteAccount(acc.accid)"><i class="fa fa-trash-o" style="color: white;font-size: 20px;" aria-hidden="true"></i></button></td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="page1=$event" class="my-pagination"></pagination-controls>
+</div>
+<br>

@@ -1,0 +1,41 @@
+<br><h3 class="text-center">User List</h3><br>
+<div class="container">
+<table class="table table-striped table-hover table-bordered" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email Id</th>
+            <th>Mobile</th>
+            <th>Secondary Mobile</th>
+            <th>Date Of Birth</th>
+            <th>Gender</th>
+            <th>Linked Accounts List</th>
+            <th>Create Account</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users | paginate: { itemsPerPage: 5, currentPage: page,totalItems:totalLength }">
+            <td>{{user.userid}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.emailid}}</td>
+            <td>{{user.mobile}}</td>
+            <td>{{user.smobile}}</td>
+            <td>{{user.dob}}</td>
+            <td>{{user.gender}}</td>
+            <td>
+                <a href="../show-account/{{user.userid}}" routerLinkActive="active" class = "btn btn-success"> <i class="fa fa-list-ul" aria-hidden="true"></i> </a>
+            </td>
+            <td>
+                <a href="../createaccount/{{user.userid}}" routerLinkActive="active" class = "btn btn-success"> create </a>
+            </td>
+            <td><button class="btn btn-success" (click)="updateUser(user.userid)"><i class="fa fa-pencil-square-o" style="color: white;font-size: 20px;" aria-hidden="true"></i></button></td>
+            <td><button class="btn btn-danger" (click)="deleteUser(user.userid)"><i class="fa fa-trash-o" style="color: white;font-size: 20px;" aria-hidden="true"></i></button></td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="page=$event" class="my-pagination"></pagination-controls>
+</div>
+<br><br>

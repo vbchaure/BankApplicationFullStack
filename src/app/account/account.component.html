@@ -1,0 +1,66 @@
+<br>
+ <!--div class="container" style="border:2px solid #f1f1f1;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);"><br>
+  <h3 class="text-center">Update Account</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="accid">Account Id</label>  
+        <label for="userid">User Id</label>
+        <input type="hidden" class="form-control" id="accid"  [(ngModel)]="acc.accid" name="accid">
+    </div>
+
+    <div class="form-group">
+      <input type="hidden" class="form-control" id="userid"  [(ngModel)]="acc.userid" name="userid">
+    </div>
+
+    <div class="form-group">
+        <label for="bname">Branch Name</label>
+        <input type="text" class="form-control" id="bname"  [(ngModel)]="acc.bname" name="bname">
+    </div>
+    
+    <div class="form-group">
+      <label for="atype">Account Type </label>
+      <input type="text" class="form-control" id="atype"  [(ngModel)]="acc.atype" name="atype">
+    </div>
+
+    <div class="form-group">
+      <label for="abalance">Account Balance</label>
+      <input type="text" class="form-control" id="abalance"  [(ngModel)]="acc.abalance" name="abalance">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form><br>
+</div--> 
+
+<div class="container mt-3" style="border:2px solid #f1f1f1;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);"><br>
+  <h2>Account form</h2>
+  <form [formGroup]="exform">
+      <div class="mb-3 mt-3">
+          <label for="accid">Account ID :</label>
+          <input [ngModelOptions]="{standalone: true}" readonly="readonly" type="text" [(ngModel)]="acc.accid" class="form-control" id="userid" placeholder="Enter Account Id " name="accid" required>
+          <!-- <small *ngIf="exform.get('accid')?.invalid && exform.get('accid')?.touched" class="text-danger">Account ID is Required</small>  -->
+      </div>
+      <div class="mb-3 mt-3">
+          <label for="userid">User ID :</label>
+          <input [ngModelOptions]="{standalone: true}" readonly="readonly" [(ngModel)]="acc.userid" class="form-control" id="name" placeholder="Enter User Id" name="userid" required>
+          <!-- <small *ngIf="exform.get('userid')?.invalid && exform.get('userid')?.touched" class="text-danger">User ID is Required</small>  -->
+      </div>
+      <div class="mb-3 mt-3">
+          <label for="bname">Branch Name :</label>
+          <input formControlName="bname" type="text" [(ngModel)]="acc.bname" class="form-control" id="bname" placeholder="Enter Branch Name" name="bname" required>
+          <small *ngIf="exform.get('bname')?.invalid && exform.get('bname')?.touched" class="text-danger">Please Enter Valid Branch Name</small> 
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="atype">Account Type :</label>&nbsp;&nbsp;
+        <label><input type="radio" formControlName="atype" [(ngModel)]="acc.atype" value="C" /> Current</label>&nbsp;&nbsp; 
+        <label><input type="radio" formControlName="atype" [(ngModel)]="acc.atype" value="S" />Saving</label>
+        <small *ngIf="exform.get('atype')?.invalid && exform.get('atype')?.touched" class="text-danger">Please Enter Valid Account Type Character(C/S)</small> 
+      </div>
+      <div class="mb-3 mt-3">
+          <label for="abalance">Account Balance :</label>
+          <input formControlName="abalance" type="text" [(ngModel)]="acc.abalance" class="form-control" id="abalance" placeholder="Enter Account Balance" name="abalance" required>
+          <small *ngIf="exform.get('abalance')?.invalid && exform.get('abalance')?.touched" class="text-danger">Please Enter Valid Account Balance eg. 100,100.20</small> 
+      </div>
+    <button [disabled]="exform.invalid" type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+  </form><br>
+</div>
+<br><br>

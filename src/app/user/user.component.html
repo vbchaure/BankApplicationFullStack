@@ -1,0 +1,86 @@
+<br>
+<div class="container mt-3" style="border:2px solid #f1f1f1;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);"><br>
+  <h2 class="text-center">User form</h2>
+  <form [formGroup]="exform">
+      <div class="mb-3 mt-3">
+          <label for="userid">User Id :</label>
+          <input [ngModelOptions]="{standalone: true}" readonly="readonly" type="text" [(ngModel)]="user.userid" class="form-control" id="userid" placeholder="Enter User Id " name="userid" required>
+          <!-- <small *ngIf="exform.get('userid')?.invalid && exform.get('userid')?.touched" class="text-danger">User ID is Required</small>  -->
+      </div>
+      <div class="mb-3 mt-3">
+          <label for="name">Name :</label>
+          <input formControlName="name" type="text" [(ngModel)]="user.name" class="form-control" id="name" placeholder="Enter Name" name="name" required>
+          <small *ngIf="exform.get('name')?.invalid && exform.get('name')?.touched" class="text-danger">Please Enter Valid Name</small> 
+      </div>
+      <div class="mb-3 mt-3">
+          <label for="email">Email Id :</label>
+          <input formControlName="email" type="text" [(ngModel)]="user.emailid" class="form-control" id="email" placeholder="Enter email" name="email" required>
+          <small *ngIf="exform.get('email')?.invalid && exform.get('email')?.touched" class="text-danger">Please Enter Valid Email Id</small> 
+      </div>
+      <div class="mb-3 mt-3">
+          <label for="mobile">Mobile Number :</label>
+          <input formControlName="mobile" type="text" [(ngModel)]="user.mobile" class="form-control" id="mobile" placeholder="Enter Mobile Number " name="mobile" required>
+          <small *ngIf="exform.get('mobile')?.invalid && exform.get('mobile')?.touched" class="text-danger">Please Enter Valid Mobile Number</small> 
+      </div>
+      <div class="mb-3 mt-3">
+          <label for="smobile">Secondary Mobile Number :</label>
+          <input formControlName="smobile" type="text" [(ngModel)]="user.smobile" class="form-control" id="smobile" placeholder="Enter Secondary Mobile Number" name="smobile" required>
+          <small *ngIf="exform.get('smobile')?.invalid && exform.get('smobile')?.touched" class="text-danger">Please Enter Valid Mobile Number</small>
+      </div>
+      <div class="mb-3 mt-3">
+          <label for="gender">Gender :</label>&nbsp;&nbsp;
+          <label><input type="radio" formControlName="gender" [(ngModel)]="user.gender" value="M" /> Male</label>&nbsp;&nbsp; 
+          <label><input type="radio" formControlName="gender" [(ngModel)]="user.gender" value="F" />Female</label>
+          <small *ngIf="exform.get('gender')?.invalid && exform.get('gender')?.touched" class="text-danger">Please Enter Valid Gender Character (M/F)</small> 
+      </div>
+      <div class="mb-3 mt-3">
+          <label for="dob">Date Of Birth (MM-DD-YYYY) : </label>&nbsp;&nbsp;
+          <input formControlName="dob" type="text" [(ngModel)]="user.dob" type="date" id="dob" name="dob" required>
+          <small *ngIf="exform.get('dob')?.invalid && exform.get('dob')?.touched" class="text-danger">Please Enter Valid Date Of Birth (MM-DD-YYYY)</small> 
+      </div>
+    <button [disabled]="exform.invalid" type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+  </form><br><br>
+</div>
+
+ <!--div class="container" style="border:2px solid #f1f1f1;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);"><br>
+  <h3 class="text-center">Update User</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="userid">User Id</label>
+        <input type="hidden" class="form-control" id="userid"  [(ngModel)]="user.userid" name="userid">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"  [(ngModel)]="user.name" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="emailid">Email Id</label>
+        <input type="text" class="form-control" id="emailid"  [(ngModel)]="user.emailid" name="emailid">
+    </div>
+    
+    <div class="form-group">
+      <label for="mobile">Mobile </label>
+      <input type="text" class="form-control" id="mobile"  [(ngModel)]="user.mobile" name="mobile">
+    </div>
+
+    <div class="form-group">
+      <label for="smobile">Secondary Mobile</label>
+      <input type="text" class="form-control" id="smobile"  [(ngModel)]="user.smobile" name="smobile">
+    </div>
+
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="text" class="form-control" id="gender"  [(ngModel)]="user.gender" name="gender">
+    </div>
+    
+    <div class="form-group">
+        <label for="dob">Date Of Birth</label>
+        <input type="text" class="form-control" id="dob"  [(ngModel)]="user.dob" name="dob">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form><br>
+</div>
+<br><br--> 

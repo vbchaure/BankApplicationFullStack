@@ -1,0 +1,64 @@
+<!--div class="container-fluid">
+
+    <div class="custom-card">
+  
+      <div class="form-group">
+        <input type="email"
+               placeholder="Enter email address"
+               class="form-control"
+        />
+      </div>
+  
+      <div class="form-group">
+        <input type="password"
+               placeholder="Enter password"
+               class="form-control"
+        />
+      </div>
+  
+      <button class="btn btn-block btn-primary">Login</button>
+  
+      <p class="horizontal-line-text">
+        <span>or</span>
+      </p>
+  
+      <asl-google-signin-button> class="btn btn-block google-sign-in" (click)="signInHandler()">
+        <img [src]="'assets/images/google.svg'" alt="google"/>
+        &nbsp;<span>Continue with Google</span>
+      </asl-google-signin-button>
+  
+    </div>
+  
+  </div-->
+  <div class="container">
+    <div class="row py-5 justify-content-center">
+      <div class="col-md-8">
+        <h1 class="text-center py-4">Angular 11 Sign In with Google</h1>        
+        <div>
+          <div >
+            <asl-google-signin-button  (click)="signInWithGoogle();" class="btn btn-primary" id="sign">Sign In With Google<span onclick="showFunction();"></span></asl-google-signin-button>
+          </div>
+        </div>
+        <!-- <div id="card" >
+          <h2 class="text-center">Name : {{user?.name}}</h2>
+          <button class="btn btn-success" (click)="signOut()">Sign Out</button>
+        </div>         -->
+        <div class="container" id="card1">
+          <div class="row">
+              <div class="col-lg-4">
+                  <div class="card" style="width:20rem;margin:20px 0 24px 0;border:2px solid #f1f1f1;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+                      <img class="card-img-top" [src]="user?.photoUrl" alt="image" style="width:100%">
+                      <div class="card-body">
+                          <h4 class="card-title">Account Details</h4>
+                          <p class="card-text">Google ID : {{user?.id}}</p>
+                          <p class="card-text">Name : {{user?.name}}</p>
+                          <p class="card-text">Email Id : {{user?.email}}</p>
+                          <button class="btn btn-success" style="float:center" (click)="signOut();">Sign Out</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
